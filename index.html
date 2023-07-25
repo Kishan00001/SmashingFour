@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="inputstyle.css"> -->
+    <title>Smashing Four</title>
+</head>
+<body>
+    <div class="container">
+        <div class="calc">    
+            <img src="logo.png" alt="">
+            <!-- <div id="result" style="font-size: x-large;font-weight: bold; height: 30px; width: 60px; background-color: aqua; visibility: hidden;"> -->
+            <div id="inputs">
+                <label for="cards">Card Type:</label>
+                <select name="cards" id="cards">
+                    <option value="common">Common</option>
+                    <option value="rare">Rare</option>
+                    <option value="epic">Epic</option>
+                </select> <br>
+                Current Level: <input type="number" id="level" required><br>
+                Card Count: <input type="number" id="count" required><br>
+            </div>
+            <button onclick="show()" id="cal">Calculate</button>
+            <button onClick="window.location.reload();" id="Refresh" style="visibility: hidden;">Home</button>
+        </div>
+        </div>
+    </div>
+    <script>
+        function show() {
+            document.getElementById("cal").style.display="none";
+            document.getElementById("Refresh").style.visibility="visible";
+            const type = document.getElementById('cards').value;
+            let level = document.getElementById('level').value;
+            let count = document.getElementById('count').value;
+            console.log(type +" "+ level +" "+count);
+            if(level=='' || count==''){
+                alert("Please Enter required information before calculating.")
+                window.location.reload();
+            }else if(level>24||level<0||(type=='common'&&count>80000)){
+                alert("Enter information correctly.")
+                window.location.reload();
+            }else{
+                const all = [0,0,0,0,0,0,0,0,0,0];
+                const Comm = [...all,725,975,1250,1550,1900,2300,2800,3500,4400,5400,6800,8500,10500,13000,16000];
+            const Rare = [...all,190,300,450,630,825,1050,1300,1575,1875,2250,2800,3225,3800,4600,6000];
+            const Epic = [...all,45,70,105,155,220,300,390,490,600,720,900,1125,1375,1675,2000];
+            let i=0,up=0;
+            for (i=level;count>0;i++) {
+                if(type=='common') count=count-Comm[i];
+                else if(type=='rare')    count=count-Rare[i];
+                else if(type=='epic')    count=count-Epic[i];
+                up++;
+                console.log(count);
+            }
+            level = parseInt(level)+up-1;
+            document.getElementById('inputs').style.paddingTop ="13vh";
+            document.getElementById('inputs').innerHTML = "You can upgrade till level "+level+".<br> You need "+(-count)+" cards to upgrade to "+(level+1)+"th level.";
+        }
+    }
+    </script>
+</body>
+</html>
