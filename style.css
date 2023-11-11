@@ -4,6 +4,7 @@
 }
 .container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -15,11 +16,25 @@ body{
 }
 .calc{
     background-color: white;
-    /* background-color: rgba(0, 0, 0, 0.4); */
-    /* display: flex; */
     border: 5px solid red;
     width: 30vw;
-    height: 60vh;
+    height: 35vh;
+    padding: 2vh;
+    outline: 10px solid blue;
+    outline-style: outset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: x-large;
+    color: red;
+    font-weight: bolder;
+    margin-bottom: 5vh;
+}
+.calcGold{
+    background-color: white;
+    border: 5px solid red;
+    width: 30vw;
+    height: 25vh;
     padding: 2vh;
     outline: 10px solid blue;
     outline-style: outset;
@@ -72,13 +87,25 @@ button:active{
     align-items: center;
     color: blue;
 }
-
+#inputsGold{
+    min-height: 20vh;
+    min-width: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: blue;
+}
 @media screen  and (max-device-width: 700px) {
     body{
         background-size: contain;
         background-repeat: repeat-y;
     }
     .calc{
+        height: 50vh;
+        font-size: large;
+        width: 45vw;
+    }
+    .calcGold{
         height: 50vh;
         font-size: large;
         width: 45vw;
