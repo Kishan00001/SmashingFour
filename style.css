@@ -100,10 +100,14 @@ button:active{
         background-size: contain;
         background-repeat: repeat-y;
     }
+    #inputs{
+        min-height: 25vh;
+    }
     .calc{
-        height: 35vh;
+        height: 30vh;
         font-size: large;
         width: 45vw;
+        margin-top: 15vh;
         margin-bottom: 10vh;
     }
     .calcGold{
