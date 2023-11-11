@@ -101,17 +101,19 @@ button:active{
         background-repeat: repeat-y;
     }
     .calc{
-        height: 50vh;
+        height: 35vh;
         font-size: large;
         width: 45vw;
+        margin-bottom: 10vh;
     }
     .calcGold{
-        height: 50vh;
+        height: 25vh;
         font-size: large;
         width: 45vw;
     }
     button{
         width: 45vw;
         height: 8vh;
+        padding: 5px;
     }
 }
